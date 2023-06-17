@@ -1,0 +1,23 @@
+{
+	"tabWidth": 4,
+	"useTabs": true,
+	"singleQuote": true,
+	"semi": true,
+	"bracketSpacing": true,
+	"arrowParens": "avoid",
+	"trailingComma": "es5",
+	"bracketSameLine": true,
+	"printWidth": 120,
+	"singleAttributePerLine": true,
+	"endOfLine": "auto",
+	"embeddedLanguageFormatting": "auto",
+	"htmlWhitespaceSensitivity": "css",
+	"overrides": [
+		{
+			"files": "src/**/*.html",
+			"options": {
+				"printWidth": 120
+			}
+		}
+	]
+}
