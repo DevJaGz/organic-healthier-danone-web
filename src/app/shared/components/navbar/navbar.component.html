@@ -1,4 +1,4 @@
-<nav class="h-16 w-limit">
+<nav class="h-16 w-limit text-base">
 	<div class="flex justify-between items-center h-full">
 		<div class="flex items-center">
 			<a
@@ -65,7 +65,30 @@
 				</svg>
 				<span>Productos</span>
 			</a>
-			<div class="flex items-center ml-4">
+			<a
+				[routerLink]="route.Products"
+				routerLinkActive="nav-link-active"
+				class="nav-link flex items-center gap-2">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon icon-tabler icon-tabler-bolt"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					stroke-width="2"
+					stroke="currentColor"
+					fill="none"
+					stroke-linecap="round"
+					stroke-linejoin="round">
+					<path
+						stroke="none"
+						d="M0 0h24v24H0z"
+						fill="none"></path>
+					<path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"></path>
+				</svg>
+				<span>Calorías</span>
+			</a>
+			<div class="flex items-center flex-nowrap ml-4">
 				<div
 					role="button"
 					class="flex items-center gap-2 bg-primary-50 hover:bg-primary-100 transition-colors px-3 py-2 rounded">
@@ -87,7 +110,7 @@
 						<path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
 						<path d="M21 21l-6 -6"></path>
 					</svg>
-					<span>Buscar</span>
+					<span class="whitespace-nowrap">Buscar Producto</span>
 				</div>
 			</div>
 			<div class="flex items-center ml-4 gap-2">

@@ -12,7 +12,7 @@
 	}
 
 	.nav-link {
-		@apply btn hover:bg-primary-50/80 transition-transform;
+		@apply btn hover:bg-primary-50/80 transition-transform whitespace-nowrap;
 	}
 
 	.nav-link-active {
