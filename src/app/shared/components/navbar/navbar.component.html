@@ -1,6 +1,8 @@
-<nav class="h-16 w-limit text-base relative">
+<div
+	class="fixed w-full h-full min-h-screen bg-danone-light-blue/40 backdrop-blur-md top-0 left-0 bottom-0 block md:hidden z-30"></div>
+<nav class="h-16 w-limit text-base relative z-30">
 	<div class="flex justify-between items-center h-full">
-		<div class="flex items-center py-2 z-10">
+		<div class="flex items-center py-2">
 			<a
 				[routerLink]="route.Blank"
 				class="w-20">
@@ -10,8 +12,6 @@
 					alt="logo" />
 			</a>
 		</div>
-		<div
-			class="absolute w-screen h-screen bg-danone-light-blue/40 backdrop-blur-md top-0 left-0 block md:hidden"></div>
 		<div
 			class="flex items-start gap-4 flex-col-reverse absolute position-center max-w-xs h-screen md:max-w-fit md:h-auto md:position-center-restart md:flex-row md:items-center md:static">
 			<div class="flex items-start flex-col gap-4 md:gap-2 md:flex-row md:items-center">
@@ -135,7 +135,7 @@
 		</div>
 		<div
 			role="button"
-			class="block md:hidden z-10">
+			class="block md:hidden">
 			BOTON
 		</div>
 	</div>
