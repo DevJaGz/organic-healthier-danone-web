@@ -7,8 +7,12 @@
 		@apply px-4 max-w-7xl mx-auto;
 	}
 
+	.btn {
+		@apply select-none p-2 rounded;
+	}
+
 	.nav-link {
-		@apply p-2 rounded hover:bg-primary-50/80 transition-transform;
+		@apply btn hover:bg-primary-50/80 transition-transform;
 	}
 
 	.nav-link-active {
