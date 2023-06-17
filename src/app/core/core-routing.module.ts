@@ -22,6 +22,10 @@ const ROUTES: Routes = [
 				path: CORE_ROUTE_NAME.Products,
 				loadChildren: () => import('@features/products/products.module').then(m => m.ProductsModule),
 			},
+			{
+				path: CORE_ROUTE_NAME.Calories,
+				loadChildren: () => import('@features/calories/calories.module').then(m => m.CaloriesModule),
+			},
 		],
 	},
 ];
