@@ -25,6 +25,7 @@ module.exports = {
 					'vivid-ceru': '#11ACED',
 					'violet-blue': '#324BAA',
 					red: '#D52330',
+					blue: '#005CA2',
 				},
 			},
 		},

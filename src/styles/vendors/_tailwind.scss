@@ -20,7 +20,7 @@
 	} */
 
 	.nav-link-active {
-		@apply relative text-danone-red bg-transparent hover:bg-transparent before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-10 before:h-[2px] before:bg-danone-red before:rounded-full   pointer-events-none;
+		@apply relative text-danone-blue font-semibold bg-transparent hover:bg-transparent before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-10 before:h-[2px] before:bg-danone-blue before:rounded-full   pointer-events-none;
 	}
 
 	// .nav-link-active {
