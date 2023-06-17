@@ -65,3 +65,13 @@ button {
 	font-size: 14px;
 	line-height: 17px;
 }
+
+svg.icon path {
+	stroke-width: 1px;
+}
+
+.nav-link-active {
+	svg.icon path {
+		stroke-width: 2px !important;
+	}
+}

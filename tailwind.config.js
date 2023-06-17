@@ -24,6 +24,7 @@ module.exports = {
 					'baby-blue': '#89C8F2',
 					'vivid-ceru': '#11ACED',
 					'violet-blue': '#324BAA',
+					red: '#D52330',
 				},
 			},
 		},

@@ -12,12 +12,20 @@
 	}
 
 	.nav-link {
-		@apply btn hover:bg-primary-50/80 transition-transform whitespace-nowrap;
+		@apply btn  hover:bg-primary-50/80 transition-transform whitespace-nowrap;
 	}
 
-	.nav-link-active {
+	/* .nav-link-active {
 		@apply bg-primary-100 hover:bg-primary-100 pointer-events-none;
+	} */
+
+	.nav-link-active {
+		@apply relative text-danone-red bg-transparent hover:bg-transparent before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-10 before:h-[2px] before:bg-danone-red before:rounded-full   pointer-events-none;
 	}
+
+	// .nav-link-active {
+	// 	@apply relative text-danone-violet-blue font-semibold bg-transparent hover:bg-transparent  pointer-events-none;
+	// }
 
 	.position-center {
 		@apply top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4;
