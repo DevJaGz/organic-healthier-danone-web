@@ -18,4 +18,12 @@
 	.nav-link-active {
 		@apply bg-primary-100 hover:bg-primary-100 pointer-events-none;
 	}
+
+	.position-center {
+		@apply top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4;
+	}
+
+	.position-center-restart {
+		@apply top-auto left-auto transform translate-x-0 translate-y-0;
+	}
 }

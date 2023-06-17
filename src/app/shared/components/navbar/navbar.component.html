@@ -1,6 +1,6 @@
-<nav class="h-16 w-limit text-base">
+<nav class="h-16 w-limit text-base relative">
 	<div class="flex justify-between items-center h-full">
-		<div class="flex items-center">
+		<div class="flex items-center py-2 z-10">
 			<a
 				[routerLink]="route.Blank"
 				class="w-20">
@@ -10,88 +10,94 @@
 					alt="logo" />
 			</a>
 		</div>
-		<div class="flex items-center gap-4">
-			<a
-				[routerLink]="route.Blank"
-				routerLinkActive="nav-link-active"
-				[routerLinkActiveOptions]="{ exact: true }"
-				class="nav-link flex items-center gap-2">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="icon icon-tabler icon-tabler-brand-windows"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					stroke-width="2"
-					stroke="currentColor"
-					fill="none"
-					stroke-linecap="round"
-					stroke-linejoin="round">
-					<path
-						stroke="none"
-						d="M0 0h24v24H0z"
-						fill="none"></path>
-					<path
-						d="M17.8 20l-12 -1.5c-1 -.1 -1.8 -.9 -1.8 -1.9v-9.2c0 -1 .8 -1.8 1.8 -1.9l12 -1.5c1.2 -.1 2.2 .8 2.2 1.9v12.1c0 1.2 -1.1 2.1 -2.2 1.9z"></path>
-					<path d="M12 5l0 14"></path>
-					<path d="M4 12l16 0"></path>
-				</svg>
-				<span>Inicio</span>
-			</a>
-			<a
-				[routerLink]="route.Products"
-				routerLinkActive="nav-link-active"
-				class="nav-link flex items-center gap-2">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="icon icon-tabler icon-tabler-building-store"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					stroke-width="2"
-					stroke="currentColor"
-					fill="none"
-					stroke-linecap="round"
-					stroke-linejoin="round">
-					<path
-						stroke="none"
-						d="M0 0h24v24H0z"
-						fill="none"></path>
-					<path d="M3 21l18 0"></path>
-					<path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"></path>
-					<path d="M5 21l0 -10.15"></path>
-					<path d="M19 21l0 -10.15"></path>
-					<path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"></path>
-				</svg>
-				<span>Productos</span>
-			</a>
-			<a
-				[routerLink]="route.Products"
-				routerLinkActive="nav-link-active"
-				class="nav-link flex items-center gap-2">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="icon icon-tabler icon-tabler-bolt"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					stroke-width="2"
-					stroke="currentColor"
-					fill="none"
-					stroke-linecap="round"
-					stroke-linejoin="round">
-					<path
-						stroke="none"
-						d="M0 0h24v24H0z"
-						fill="none"></path>
-					<path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"></path>
-				</svg>
-				<span>Calorías</span>
-			</a>
-			<div class="flex items-center flex-nowrap ml-4">
+		<div
+			class="absolute w-screen h-screen bg-danone-light-blue/40 backdrop-blur-md top-0 left-0 block md:hidden"></div>
+		<div
+			class="flex items-start gap-4 flex-col-reverse absolute position-center max-w-xs h-screen md:max-w-fit md:h-auto md:position-center-restart md:flex-row md:items-center md:static">
+			<div class="flex items-start flex-col gap-4 md:gap-2 md:flex-row md:items-center">
+				<a
+					[routerLink]="route.Blank"
+					routerLinkActive="nav-link-active"
+					[routerLinkActiveOptions]="{ exact: true }"
+					class="nav-link flex items-center gap-2">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-brand-windows"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						stroke-width="2"
+						stroke="currentColor"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round">
+						<path
+							stroke="none"
+							d="M0 0h24v24H0z"
+							fill="none"></path>
+						<path
+							d="M17.8 20l-12 -1.5c-1 -.1 -1.8 -.9 -1.8 -1.9v-9.2c0 -1 .8 -1.8 1.8 -1.9l12 -1.5c1.2 -.1 2.2 .8 2.2 1.9v12.1c0 1.2 -1.1 2.1 -2.2 1.9z"></path>
+						<path d="M12 5l0 14"></path>
+						<path d="M4 12l16 0"></path>
+					</svg>
+					<span>Inicio</span>
+				</a>
+				<a
+					[routerLink]="route.Products"
+					routerLinkActive="nav-link-active"
+					class="nav-link flex items-center gap-2">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-building-store"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						stroke-width="2"
+						stroke="currentColor"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round">
+						<path
+							stroke="none"
+							d="M0 0h24v24H0z"
+							fill="none"></path>
+						<path d="M3 21l18 0"></path>
+						<path
+							d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"></path>
+						<path d="M5 21l0 -10.15"></path>
+						<path d="M19 21l0 -10.15"></path>
+						<path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"></path>
+					</svg>
+					<span>Productos</span>
+				</a>
+				<a
+					[routerLink]="route.Products"
+					routerLinkActive="nav-link-active"
+					class="nav-link flex items-center gap-2">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-bolt"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						stroke-width="2"
+						stroke="currentColor"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round">
+						<path
+							stroke="none"
+							d="M0 0h24v24H0z"
+							fill="none"></path>
+						<path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"></path>
+					</svg>
+					<span>Calorías</span>
+				</a>
+			</div>
+			<div class="flex items-start flex-col-reverse gap-4 md:flex-row md:items-center">
 				<div
 					role="button"
-					class="flex items-center gap-2 bg-primary-50 hover:bg-primary-100 transition-colors px-3 py-2 rounded">
+					class="flex items-center gap-2 mx-auto mb-10 bg-primary-50 hover:bg-primary-100 transition-colors px-3 py-2 rounded md:mb-0 md:mx-0">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="icon icon-tabler icon-tabler-search"
@@ -112,17 +118,25 @@
 					</svg>
 					<span class="whitespace-nowrap">Buscar Producto</span>
 				</div>
-			</div>
-			<div class="flex items-center ml-4 gap-2">
-				<div
-					role="button"
-					class="w-10 h-10 grid place-items-center overflow-hidden rounded-full shadow border border-primary-50 hover:shadow-inner hover:shadow-primary-50/80 transition-colors">
-					<img
-						class="w-full object-contain"
-						src="assets/imgs/png/no-photo-available.png"
-						alt="user" />
+				<div class="flex items-center gap-2">
+					<div
+						role="button"
+						class="w-10 h-10 grid place-items-center overflow-hidden rounded-full shadow border border-primary-50 hover:shadow-inner hover:shadow-primary-50/80 transition-colors">
+						<img
+							class="w-full h-full object-cover"
+							src="assets/imgs/png/no-photo-available.png"
+							alt="user" />
+					</div>
+					<span class="max-w-full overflow-hidden text-ellipsis whitespace-nowrap block md:hidden"
+						>Julian Andres Gomez Gomez</span
+					>
 				</div>
 			</div>
+		</div>
+		<div
+			role="button"
+			class="block md:hidden z-10">
+			BOTON
 		</div>
 	</div>
 </nav>
