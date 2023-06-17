@@ -13,7 +13,12 @@ const ROUTES: Routes = [
 	{
 		path: CORE_ROUTE_NAME.Blank,
 		component: CorePageComponent,
-		children: [],
+		children: [
+			{
+				path: CORE_ROUTE_NAME.Blank,
+				loadChildren: () => import('@features/home/home.module').then(m => m.HomeModule),
+			},
+		],
 	},
 ];
 

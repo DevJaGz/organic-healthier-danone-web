@@ -1,0 +1,104 @@
+<nav class="h-16 w-limit">
+	<div class="flex justify-between items-center h-full">
+		<div class="flex items-center">
+			<a
+				[routerLink]="route.Blank"
+				class="w-20">
+				<img
+					class="object-contain"
+					src="assets/imgs/png/logo.png"
+					alt="logo" />
+			</a>
+		</div>
+		<div class="flex items-center gap-4">
+			<a
+				[routerLink]="route.Blank"
+				routerLinkActive="nav-link-active"
+				class="nav-link flex items-center gap-2">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon icon-tabler icon-tabler-brand-windows"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					stroke-width="2"
+					stroke="currentColor"
+					fill="none"
+					stroke-linecap="round"
+					stroke-linejoin="round">
+					<path
+						stroke="none"
+						d="M0 0h24v24H0z"
+						fill="none"></path>
+					<path
+						d="M17.8 20l-12 -1.5c-1 -.1 -1.8 -.9 -1.8 -1.9v-9.2c0 -1 .8 -1.8 1.8 -1.9l12 -1.5c1.2 -.1 2.2 .8 2.2 1.9v12.1c0 1.2 -1.1 2.1 -2.2 1.9z"></path>
+					<path d="M12 5l0 14"></path>
+					<path d="M4 12l16 0"></path>
+				</svg>
+				<span>Inicio</span>
+			</a>
+			<a
+				[routerLink]="route.Blank"
+				routerLinkActive="nav-link-active"
+				class="nav-link flex items-center gap-2">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon icon-tabler icon-tabler-building-store"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					stroke-width="2"
+					stroke="currentColor"
+					fill="none"
+					stroke-linecap="round"
+					stroke-linejoin="round">
+					<path
+						stroke="none"
+						d="M0 0h24v24H0z"
+						fill="none"></path>
+					<path d="M3 21l18 0"></path>
+					<path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"></path>
+					<path d="M5 21l0 -10.15"></path>
+					<path d="M19 21l0 -10.15"></path>
+					<path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"></path>
+				</svg>
+				<span>Productos</span>
+			</a>
+			<div class="flex items-center ml-4">
+				<div
+					role="button"
+					class="flex items-center gap-2 bg-primary-50 hover:bg-primary-100 transition-colors px-3 py-2 rounded">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="icon icon-tabler icon-tabler-search"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						stroke-width="2"
+						stroke="currentColor"
+						fill="none"
+						stroke-linecap="round"
+						stroke-linejoin="round">
+						<path
+							stroke="none"
+							d="M0 0h24v24H0z"
+							fill="none"></path>
+						<path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+						<path d="M21 21l-6 -6"></path>
+					</svg>
+					<span>Buscar</span>
+				</div>
+			</div>
+			<div class="flex items-center ml-4 gap-2">
+				<div
+					role="button"
+					class="w-10 h-10 grid place-items-center overflow-hidden rounded-full shadow border border-primary-50 hover:shadow-inner hover:shadow-primary-50/80 transition-colors">
+					<img
+						class="w-full object-contain"
+						src="assets/imgs/png/no-photo-available.png"
+						alt="user" />
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
