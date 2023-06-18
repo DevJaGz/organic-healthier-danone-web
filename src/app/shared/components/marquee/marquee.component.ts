@@ -78,7 +78,8 @@ export class MarqueeComponent implements AfterViewInit {
 		// Set the width of the marquee item
 		this.marqueeItemWidth = marqueeItemWidth;
 		this.labelsShown = [...this._labels, ...this.getDuplicateLabels(numDuplicates)];
-		console.log('Label Shown lenght', this.labelsShown.length, this.labelsShown);
+		// TODO: For debuggin purposes - CHECK when to remove
+		// console.log('Label Shown lenght', this.labelsShown.length, this.labelsShown);
 
 		this.changeDetector.detectChanges();
 	}
@@ -93,7 +94,10 @@ export class MarqueeComponent implements AfterViewInit {
 		);
 		const totalWidth = initialNumberOfMarqueeItems * marqueeItemWidth;
 		const excessWidth = Math.abs(marqueeWidth - totalWidth);
-		const numDuplicates = Math.max(Math.ceil(marqueeWidth / excessWidth), Math.ceil(excessWidth / marqueeWidth));
+		const numDuplicates = Math.max(
+			Math.ceil(marqueeWidth / (totalWidth + marqueeWidth)),
+			Math.ceil((totalWidth + marqueeWidth) / marqueeWidth)
+		);
 		const cicles = totalWidth / marqueeWidth;
 		const duration = Math.max(
 			4,
@@ -102,15 +106,15 @@ export class MarqueeComponent implements AfterViewInit {
 				Math.ceil((this._labels.length - numDuplicates) * (1 / numDuplicates) + 2 * this._labels.length)
 			)
 		);
-
-		console.log('marqueeWidth', marqueeWidth);
-		console.log('numberOfMarqueeItems', initialNumberOfMarqueeItems);
-		console.log('marqueeItemWidth', marqueeItemWidth);
-		console.log('totalWidth', totalWidth);
-		console.log('excessWidth', excessWidth);
-		console.log('numDuplicates', numDuplicates);
-		console.log('cicles', cicles);
-		console.log('duration', duration);
+		// TODO: For debuggin purposes - CHECK when to remove
+		// console.log('marqueeWidth', marqueeWidth);
+		// console.log('numberOfMarqueeItems', initialNumberOfMarqueeItems);
+		// console.log('marqueeItemWidth', marqueeItemWidth);
+		// console.log('totalWidth', totalWidth);
+		// console.log('excessWidth', excessWidth);
+		// console.log('numDuplicates', numDuplicates);
+		// console.log('cicles', cicles);
+		// console.log('duration', duration);
 		return {
 			numDuplicates,
 			cicles,
@@ -126,9 +130,9 @@ export class MarqueeComponent implements AfterViewInit {
 			for (let i = 0; i < numDuplicates; i++) {
 				labels.push(this._labels[i % labelsLength]);
 			}
-			return labels.map(v => '*' + v.slice(1));
+			return labels;
 		}
-		return this._labels.slice(0, numDuplicates).map(v => '*' + v.slice(1));
+		return this._labels.slice(0, numDuplicates);
 	}
 
 	@HostListener('window:resize')
