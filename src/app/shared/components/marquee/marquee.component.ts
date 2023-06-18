@@ -5,6 +5,7 @@ import {
 	ChangeDetectorRef,
 	Component,
 	ElementRef,
+	HostListener,
 	Input,
 	Renderer2,
 	inject,
@@ -24,8 +25,7 @@ export type MarqueeCalculationResult = {
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MarqueeComponent implements AfterViewInit {
-	@Input()
-	labels = [
+	private _labels: string[] = [
 		'Innovación',
 		'Sostenibilidad',
 		'Salud',
@@ -45,6 +45,10 @@ export class MarqueeComponent implements AfterViewInit {
 		'Calidad',
 		'Vida',
 	];
+	@Input()
+	set labels(value: string[]) {
+		this._labels = value;
+	}
 
 	private readonly host = inject(ElementRef);
 	private readonly document = inject(DOCUMENT);
@@ -52,7 +56,7 @@ export class MarqueeComponent implements AfterViewInit {
 	private readonly changeDetector = inject(ChangeDetectorRef);
 
 	marqueeItemWidth = 0; // px - Calculated in runtime
-	labelShown: string[] = []; // Calculated in runtime
+	labelsShown: string[] = []; // Calculated in runtime
 	readonly marqueeItemPadding = 16; // px
 	readonly minMarqueeItemWidth = 150; // px
 
@@ -73,14 +77,14 @@ export class MarqueeComponent implements AfterViewInit {
 		);
 		// Set the width of the marquee item
 		this.marqueeItemWidth = marqueeItemWidth;
-		this.labelShown = [...this.labels, ...this.labels.slice(0, numDuplicates).map(v => '' + v.slice(0))];
+		this.labelsShown = [...this._labels, ...this._labels.slice(0, numDuplicates).map(v => '' + v.slice(0))];
 		this.changeDetector.detectChanges();
 	}
 
 	private makeCalculations(): MarqueeCalculationResult {
 		const minMarqueeItemWidth = this.minMarqueeItemWidth + this.marqueeItemPadding * 2;
 		const marqueeWidth = this.host.nativeElement.clientWidth;
-		const numberOfMarqueeItems = this.labels.length;
+		const numberOfMarqueeItems = this._labels.length;
 		const marqueeItemWidth = Math.max(
 			minMarqueeItemWidth,
 			Math.min(minMarqueeItemWidth * 2, Math.round(marqueeWidth / numberOfMarqueeItems))
@@ -89,7 +93,7 @@ export class MarqueeComponent implements AfterViewInit {
 		const excessWidth = totalWidth - marqueeWidth;
 		const numDuplicates = Math.ceil(excessWidth / marqueeItemWidth);
 		const cicles = totalWidth / marqueeWidth;
-		const duration = Math.max(4, Math.min(40, Math.ceil(this.labels.length * 0.5 + 18)));
+		const duration = Math.max(4, Math.min(40, Math.ceil(this._labels.length * 0.5 + 18)));
 
 		return {
 			numDuplicates,
@@ -97,5 +101,10 @@ export class MarqueeComponent implements AfterViewInit {
 			duration,
 			marqueeItemWidth,
 		};
+	}
+
+	@HostListener('window:resize')
+	onResize() {
+		this.updateCalculations();
 	}
 }
