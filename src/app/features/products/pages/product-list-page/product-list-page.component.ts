@@ -6,4 +6,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 	styles: [],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductListPageComponent {}
+export class ProductListPageComponent {
+	products: any[] = new Array(10).fill({});
+}

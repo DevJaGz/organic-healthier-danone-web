@@ -40,6 +40,9 @@ module.exports = {
 					'100%': { transform: 'translateX(var(--marquee-cicles))' },
 				},
 			},
+			gridTemplateColumns: {
+				'auto-fit': 'repeat(auto-fit, minmax(250px, 1fr))',
+			},
 		},
 	},
 	plugins: [],
