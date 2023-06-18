@@ -8,11 +8,11 @@
 	}
 
 	.btn {
-		@apply select-none p-2 rounded;
+		@apply select-none  rounded;
 	}
 
 	.nav-link {
-		@apply btn  hover:bg-primary-50/80 transition-transform whitespace-nowrap;
+		@apply btn p-2 hover:bg-primary-50/80 transition-transform whitespace-nowrap;
 	}
 
 	/* .nav-link-active {

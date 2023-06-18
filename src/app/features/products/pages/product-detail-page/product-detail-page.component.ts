@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CORE_ROUTE_NAME } from '@core/core-routing.module';
 
 @Component({
 	selector: 'app-product-detail-page',
@@ -6,4 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 	styles: [],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductDetailPageComponent {}
+export class ProductDetailPageComponent {
+	readonly route = CORE_ROUTE_NAME;
+}
