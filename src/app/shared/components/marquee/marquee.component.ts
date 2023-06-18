@@ -77,30 +77,58 @@ export class MarqueeComponent implements AfterViewInit {
 		);
 		// Set the width of the marquee item
 		this.marqueeItemWidth = marqueeItemWidth;
-		this.labelsShown = [...this._labels, ...this._labels.slice(0, numDuplicates).map(v => '' + v.slice(0))];
+		this.labelsShown = [...this._labels, ...this.getDuplicateLabels(numDuplicates)];
+		console.log('Label Shown lenght', this.labelsShown.length, this.labelsShown);
+
 		this.changeDetector.detectChanges();
 	}
 
 	private makeCalculations(): MarqueeCalculationResult {
-		const minMarqueeItemWidth = this.minMarqueeItemWidth + this.marqueeItemPadding * 2;
+		const minMarqueeItemWidth = Math.ceil(this.minMarqueeItemWidth + this.marqueeItemPadding * 2);
 		const marqueeWidth = this.host.nativeElement.clientWidth;
-		const numberOfMarqueeItems = this._labels.length;
+		const initialNumberOfMarqueeItems = this._labels.length;
 		const marqueeItemWidth = Math.max(
 			minMarqueeItemWidth,
-			Math.min(minMarqueeItemWidth * 2, Math.round(marqueeWidth / numberOfMarqueeItems))
+			Math.min(minMarqueeItemWidth * 2, Math.ceil(marqueeWidth / initialNumberOfMarqueeItems))
 		);
-		const totalWidth = numberOfMarqueeItems * marqueeItemWidth;
-		const excessWidth = totalWidth - marqueeWidth;
-		const numDuplicates = Math.ceil(excessWidth / marqueeItemWidth);
+		const totalWidth = initialNumberOfMarqueeItems * marqueeItemWidth;
+		const excessWidth = Math.abs(marqueeWidth - totalWidth);
+		const numDuplicates = Math.max(Math.ceil(marqueeWidth / excessWidth), Math.ceil(excessWidth / marqueeWidth));
 		const cicles = totalWidth / marqueeWidth;
-		const duration = Math.max(4, Math.min(40, Math.ceil(this._labels.length * 0.5 + 18)));
+		const duration = Math.max(
+			4,
+			Math.min(
+				40,
+				Math.ceil((this._labels.length - numDuplicates) * (1 / numDuplicates) + 2 * this._labels.length)
+			)
+		);
 
+		console.log('marqueeWidth', marqueeWidth);
+		console.log('numberOfMarqueeItems', initialNumberOfMarqueeItems);
+		console.log('marqueeItemWidth', marqueeItemWidth);
+		console.log('totalWidth', totalWidth);
+		console.log('excessWidth', excessWidth);
+		console.log('numDuplicates', numDuplicates);
+		console.log('cicles', cicles);
+		console.log('duration', duration);
 		return {
 			numDuplicates,
 			cicles,
 			duration,
 			marqueeItemWidth,
 		};
+	}
+
+	private getDuplicateLabels(numDuplicates: number): string[] {
+		const labels: string[] = [];
+		const labelsLength = this._labels.length;
+		if (numDuplicates > labelsLength) {
+			for (let i = 0; i < numDuplicates; i++) {
+				labels.push(this._labels[i % labelsLength]);
+			}
+			return labels.map(v => '*' + v.slice(1));
+		}
+		return this._labels.slice(0, numDuplicates).map(v => '*' + v.slice(1));
 	}
 
 	@HostListener('window:resize')
