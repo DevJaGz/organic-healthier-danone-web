@@ -28,9 +28,53 @@
 			alt="landing" />
 	</div>
 </section>
-<section class="min-h-[400px] py-24">
-	<h3>Sé Parte del Cambio</h3>
-	<img
-		src="assets/imgs/jpg/girl-running.jpg"
-		alt="Girl Running" />
+<section class="min-h-[400px] py-24 w-limit">
+	<div class="grid">
+		<ng-container
+			[ngTemplateOutlet]="infoWithImageTemplate"
+			[ngTemplateOutletContext]="{
+				isLeft: false,
+				title: 'Sé Parte del Cambio',
+				image: 'assets/imgs/jpg/girl-running.jpg',
+				info: 'Al elegir nuestros productos ecológicos, no solo estás haciendo algo bueno para ti mismo, sino también para el medio ambiente. Cada elección cuenta, y al optar por opciones sostenibles estás contribuyendo al cambio hacia un futuro más verde y saludable. Únete a nosotros y sé parte de esta transformación, donde todos podemos marcar la diferencia a través de nuestras decisiones diarias.'
+			}"></ng-container>
+		<ng-container
+			[ngTemplateOutlet]="infoWithImageTemplate"
+			[ngTemplateOutletContext]="{
+				isLeft: true,
+				title: 'Sabores Deliciosos, Ingredientes de Calidad',
+				image: 'assets/imgs/jpg/girls-eatting.jpeg',
+				info: 'En Danone, creemos que la comida saludable no tiene por qué ser aburrida. Nuestros productos ecológicos no solo son buenos para ti y para el planeta, sino que también están llenos de sabores deliciosos que te harán disfrutar cada bocado. Utilizamos ingredientes de alta calidad y técnicas de elaboración cuidadosas para ofrecerte productos que son una delicia para el paladar y beneficiosos para tu bienestar.'
+			}"></ng-container>
+	</div>
 </section>
+
+<ng-template
+	#infoWithImageTemplate
+	let-isLeft="isLeft"
+	let-title="title"
+	let-image="image"
+	let-info="info">
+	<div class="p-2">
+		<h3
+			class="mb-4 max-w-lg"
+			[class.text-right]="!isLeft"
+			[class.ml-auto]="!isLeft">
+			{{ title }}
+		</h3>
+		<div
+			class="max-w-lg overflow-hidden rounded"
+			[class.ml-auto]="!isLeft">
+			<img
+				class="object-cover w-full h-full"
+				[src]="image"
+				alt="Info Image" />
+		</div>
+		<p
+			class="text-base max-w-lg mt-4"
+			[class.text-right]="!isLeft"
+			[class.ml-auto]="!isLeft">
+			{{ info }}
+		</p>
+	</div>
+</ng-template>
