@@ -54,6 +54,7 @@ export class MarqueeComponent implements AfterViewInit {
 	marqueeItemWidth = 0; // px - Calculated in runtime
 	labelShown: string[] = []; // Calculated in runtime
 	readonly marqueeItemPadding = 16; // px
+	readonly minMarqueeItemWidth = 150; // px
 
 	ngAfterViewInit(): void {
 		this.updateCalculations();
@@ -77,7 +78,7 @@ export class MarqueeComponent implements AfterViewInit {
 	}
 
 	private makeCalculations(): MarqueeCalculationResult {
-		const minMarqueeItemWidth = 128 + this.marqueeItemPadding * 2;
+		const minMarqueeItemWidth = this.minMarqueeItemWidth + this.marqueeItemPadding * 2;
 		const marqueeWidth = this.host.nativeElement.clientWidth;
 		const numberOfMarqueeItems = this.labels.length;
 		const marqueeItemWidth = Math.max(
