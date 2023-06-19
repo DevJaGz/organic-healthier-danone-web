@@ -2,7 +2,15 @@
 	<div class="w-limit">
 		<h3 class="text-gray-800 px-2">Nuestro productos</h3>
 		<div class="grid grid-cols-auto-fit gap-4 sm:gap-8 mt-12">
-			<app-product-item *ngFor="let product of products"></app-product-item>
+			<ng-container *ngIf="products.length; else skeletonNoProductsTemplate">
+				<app-product-item *ngFor="let product of products"></app-product-item>
+			</ng-container>
 		</div>
 	</div>
 </section>
+
+<ng-template #skeletonNoProductsTemplate>
+	<div class="grid grid-cols-auto-fit gap-4 sm:gap-8 mt-12">
+		<app-product-item-skeleton *ngFor="let product of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"></app-product-item-skeleton>
+	</div>
+</ng-template>

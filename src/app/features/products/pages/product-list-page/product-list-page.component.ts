@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
+import { Products } from '@core/interfaces/products.interface';
 import { ContentfulApiService } from '@core/services/contentful-api.service';
 
 @Component({
@@ -9,12 +10,14 @@ import { ContentfulApiService } from '@core/services/contentful-api.service';
 })
 export class ProductListPageComponent implements OnInit {
 	private readonly contentfulApiService = inject(ContentfulApiService);
-	products: any[] = new Array(10).fill({});
+	private readonly changeDetector = inject(ChangeDetectorRef);
+	products: Products = [];
 
 	ngOnInit(): void {
 		this.contentfulApiService.getProducts().subscribe({
 			next: products => {
-				console.log(products);
+				this.products = products;
+				this.changeDetector.detectChanges();
 			},
 		});
 	}
