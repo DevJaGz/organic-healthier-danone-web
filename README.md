@@ -1,27 +1,34 @@
-# OrganicHealthierDanoneWeb
+# Organic Healthier Danone Web 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+Web page to promote the range of organic and healthier products of Danone.
+  <div style="display:grid; place-items:center">
+    <img src="./docs/imgs/gif/landing-screen.gif" style="max-width: 1024px"></img>
+  </div>
 
+## Stack
+ - Angular v16
+ - Node v16+
+ - Contentful v1
+## Requirements
+ - Node v16+
+
+## Installing
+Once downloaded or clonned the project, move to the project folder and install the dependencis with the next command:
+ ```powershell
+ npm install
+ ```
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Decision making
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This project was made in Angular because is a great and powerful framework to develop Websites and I have been working with it for more than 3 years. The Contenful Headless CMS was chosen because was suggested during the event. 
 
-## Build
+Based on the requirements of the challenge, I set the next routes:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- <strong>'/'</strong>  Landing Page (Home)
+- <strong>'/productos'</strong>  Products Page (List all products)
+- <strong>'/productos/:productId'</strong>  Product Detail Page (Show the detail of a Product)
+- <strong>'/calorias'</strong>  Calories Page (Allow configurate the maximum daily calorie limit)
+- <strong>'/account'</strong> User account Page (Allow the user to see and edit its own data)
