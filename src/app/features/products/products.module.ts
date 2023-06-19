@@ -9,7 +9,13 @@ import { ProductItemSkeletonComponent } from './components/product-item-skeleton
 import { ProductDetailSkeletonComponent } from './components/product-detail-skeleton/product-detail-skeleton.component';
 
 @NgModule({
-	declarations: [ProductListPageComponent, ProductDetailPageComponent, ProductItemComponent, ProductItemSkeletonComponent, ProductDetailSkeletonComponent],
+	declarations: [
+		ProductListPageComponent,
+		ProductDetailPageComponent,
+		ProductItemComponent,
+		ProductItemSkeletonComponent,
+		ProductDetailSkeletonComponent,
+	],
 	imports: [CommonModule, ProductsRoutingModule],
 })
 export class ProductsModule {}
