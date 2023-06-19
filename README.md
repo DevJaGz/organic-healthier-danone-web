@@ -47,3 +47,8 @@ I started with the layout and static data and then I moved to connect the App wi
 - <strong>Calories Page</strong>  Under construction ([see](https://danone-healthy.web.app/calorias))
 - <strong>User account Page</strong>  Under construction ([see](https://danone-healthy.web.app/cuenta))
 - The bar search was added, but it does not have functionality.
+
+
+## Notes
+- Not all the code was commented because of the time.
+- The Contenful API Key was added in the repo because in the next weeks I'll probably delete it from my account.
