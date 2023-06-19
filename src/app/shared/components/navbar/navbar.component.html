@@ -2,7 +2,7 @@
 	*ngIf="isMenuActive$ | async"
 	class="fixed w-full h-full min-h-screen bg-danone-light-blue/40 backdrop-blur-md top-0 left-0 bottom-0 block md:hidden z-30 overflow-hidden"></div>
 <nav
-	class="h-16 text-base z-30 bg-transparent fixed top-0 w-full"
+	class="h-16 text-base z-30 bg-transparent fixed top-0 w-full transition-colors"
 	[class]="{ 'bg-white/70': !isScrollOnTop, 'backdrop-blur-sm': !isScrollOnTop, 'bg-transparent': isScrollOnTop }">
 	<div class="w-limit flex justify-between items-center h-full">
 		<div class="flex items-center py-2">
