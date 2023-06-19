@@ -39,7 +39,7 @@ Based on the requirements of the challenge, I set the next routes:
 - <strong>'/calorias'</strong>  Calories Page (Allow configurate the maximum daily calorie limit)
 - <strong>'/cuenta'</strong> User account Page (Allow the user to see and edit its own data)
 
-I started with the layout and static data and then I move to connect the App with the CMS, however due to time not all could be done. Next is shown a small status about the developed features:
+I started with the layout and static data and then I moved to connect the App with the Headless CMS, however, due to time not all the requirements could be fulfilled. Next is shown a small status about the developed features:
 
 - <strong>Landing Page</strong>  Finished but with static data ([see](https://danone-healthy.web.app/))
 - <strong>Products Page</strong>  Finished and connected with the CMS Data using GrapQL ([see](https://danone-healthy.web.app/productos))
