@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Products } from '@core/interfaces/products.interface';
 import { GraphQLService } from '@core/services/graph-ql.service';
@@ -18,12 +18,6 @@ export class ContentfulApiService {
 			},
 		};
 		const url = this.graphQLService.createQuery(this.url, query);
-		console.log(url);
-
-		const headers = new HttpHeaders({
-			Authorization: `Bearer ${environment.contentful.APIKey}`,
-			'Content-Type': 'application/json',
-		});
-		return this.httpService.get<Products>(url, { headers });
+		return this.httpService.get<Products>(url);
 	}
 }
