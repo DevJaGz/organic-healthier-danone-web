@@ -26,7 +26,15 @@ const ROUTES: Routes = [
 				path: CORE_ROUTE_NAME.Calories,
 				loadChildren: () => import('@features/calories/calories.module').then(m => m.CaloriesModule),
 			},
+			{
+				path: CORE_ROUTE_NAME.Account,
+				loadChildren: () => import('@features/account/account.module').then(m => m.AccountModule),
+			},
 		],
+	},
+	{
+		path: '**',
+		redirectTo: CORE_ROUTE_NAME.Blank,
 	},
 ];
 

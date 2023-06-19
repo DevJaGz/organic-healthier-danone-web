@@ -31,4 +31,4 @@ Based on the requirements of the challenge, I set the next routes:
 - <strong>'/productos'</strong>  Products Page (List all products)
 - <strong>'/productos/:productId'</strong>  Product Detail Page (Show the detail of a Product)
 - <strong>'/calorias'</strong>  Calories Page (Allow configurate the maximum daily calorie limit)
-- <strong>'/account'</strong> User account Page (Allow the user to see and edit its own data)
+- <strong>'/cuenta'</strong> User account Page (Allow the user to see and edit its own data)
