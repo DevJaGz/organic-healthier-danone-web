@@ -1,20 +1,23 @@
 <div
 	class="mx-auto h-full max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 hover:scale-105 transition-transform">
-	<a
-		[routerLink]="id"
-		class="relative before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-full before:hover:bg-danone-blue/5 before:transition-colors">
-		<img
-			class="rounded-t-lg w-full h-80 object-cover aspect-video"
-			[src]="image"
-			alt="Product image" />
-	</a>
+	<div class="bg-white h-80 rounded-t-lg overflow-hidden">
+		<a
+			[routerLink]="id"
+			class="block h-full relative before:content-[''] before:absolute before:top-0 before:left-0 before:h-full before:w-full before:hover:bg-danone-blue/5 before:transition-colors">
+			<img
+				class="w-full h-full object-contain aspect-video"
+				[src]="image"
+				alt="Product image" />
+		</a>
+	</div>
 	<div class="p-5">
 		<a [routerLink]="id">
-			<h5 class="mb-2 text-2xl font-bold tracking-tight text-white">
+			<h5
+				class="mb-2 text-2xl font-bold tracking-tight text-white h-10 overflow-hidden whitespace-nowrap text-ellipsis">
 				{{ title }}
 			</h5>
 		</a>
-		<p class="mb-3 font-normal text-gray-400">
+		<p class="mb-3 font-normal text-gray-400 h-24 overflow-hidden overflow-y-auto">
 			{{ description }}
 		</p>
 		<a

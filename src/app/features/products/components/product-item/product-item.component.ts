@@ -4,7 +4,7 @@ import { IProduct } from '@core/interfaces/products.interface';
 @Component({
 	selector: 'app-product-item',
 	templateUrl: './product-item.component.html',
-	styles: [],
+	styleUrls: ['./product-item.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductItemComponent {

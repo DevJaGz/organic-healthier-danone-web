@@ -1,0 +1,8 @@
+*::-webkit-scrollbar-thumb {
+	border: 2px solid theme('colors.gray.800');
+	background-color: theme('colors.danone.blue');
+}
+
+*::-webkit-scrollbar-thumb:horizontal {
+	border: 2px solid theme('colors.gray.800');
+}
