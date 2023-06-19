@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Products } from '@core/interfaces/products.interface';
+import { IProduct, Products } from '@core/interfaces/products.interface';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 
@@ -9,6 +9,12 @@ export type ContentfulCollection<T = any> = {
 		[s: string]: {
 			items: T;
 		};
+	};
+};
+
+export type ContentfulItem<T = any> = {
+	data: {
+		[s: string]: T;
 	};
 };
 
@@ -40,12 +46,45 @@ export class ContentfulApiService {
 			.pipe(this.getItems<Products>('productCollection'));
 	}
 
+	getProduct(id: string): Observable<IProduct> {
+		const query = `
+    query {
+      product(id: "${id}") {
+        sys {
+          id
+        }
+        title
+        description
+        ingredients
+        productData
+        ean
+        image {
+          url
+        }
+      }
+    }
+    `;
+		const contentfulURL = `${this.url}?query=${query}`;
+		return this.httpService.get<ContentfulItem<IProduct>>(contentfulURL).pipe(this.getItem<IProduct>('product'));
+	}
+
 	private getItems<T = any>(key: string) {
 		return (source: Observable<ContentfulCollection<T>>) => {
 			return source.pipe(
 				map(res => {
 					const items = res.data[key].items as any[];
 					return items.map(({ sys, ...otherProps }) => ({ ...otherProps, id: sys?.id }));
+				})
+			);
+		};
+	}
+
+	private getItem<T = any>(key: string) {
+		return (source: Observable<ContentfulItem<T>>) => {
+			return source.pipe(
+				map(res => {
+					const { sys, ...otherProps } = res.data[key] as any;
+					return { ...otherProps, id: sys?.id };
 				})
 			);
 		};

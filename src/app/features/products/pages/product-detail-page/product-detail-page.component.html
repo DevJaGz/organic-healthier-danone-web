@@ -1,33 +1,34 @@
-<section class="grid place-items-center h-full p-4">
+<section
+	class="grid place-items-center h-full p-4"
+	*ngIf="isLoaded; else skeletonTemplate">
 	<div class="flex flex-col">
-		<h4 class="py-4 text-gray-800 text-center md:text-left">Azucarado x 4</h4>
+		<h4 class="py-4 text-gray-800 text-center md:text-left">{{ title }}</h4>
 		<div class="text-base mb-4">
-			El clásico yogur Danone azucarado, con leche y fermentos naturales. En formato tradicional x4
+			{{ description }}
 		</div>
 		<div class="flex flex-col md:flex-row gap-8">
-			<img
-				src="assets/imgs/jpg/azucaradox4.jpg"
-				class="h-auto mx-auto max-w-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
-				alt="" />
-			<div class="flex flex-col justify-between max-w-2xl gap-2">
+			<div class="mx-auto w-72 h-72 md:w-80 md:h-80 flex-shrink-0">
+				<img
+					[src]="image"
+					class="w-full h-full object-contain shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
+					alt="" />
+			</div>
+			<div class="flex flex-col max-w-2xl gap-2">
 				<div class="flex flex-col">
 					<h5 class="text-gray-800 text-base">Ingredientes</h5>
 					<p class="text-base">
-						Leche fresca parcialmente desnatada pasteurizada (93,3%), azúcar (6,3%), leche en polvo
-						desnatada y fermentos lácticos. Origen de la leche: España. Sin gluten
+						{{ ingredients }}
 					</p>
 				</div>
 				<div class="flex flex-col">
 					<h5 class="text-gray-800 text-base">Datos del producto</h5>
 					<p class="text-base">
-						Calibre: 4x120g Condiciones de consumo: Consérvese en frío entre 2°C y 6°C Denominación legal:
-						Yogur natural azucarado Dirección empresa alimentaria: Buenos Aires 21, 08029 Barcelona Razón
-						social: Danone S.A.
+						{{ productData }}
 					</p>
 				</div>
 				<div class="flex items-center">
 					<h5 class="text-gray-800 text-base">EAN:</h5>
-					<span class="text-base">08410500006099</span>
+					<span class="text-base">{{ ean }}</span>
 				</div>
 			</div>
 		</div>
@@ -41,3 +42,5 @@
 		</div>
 	</div>
 </section>
+
+<ng-template #skeletonTemplate> <app-product-detail-skeleton></app-product-detail-skeleton> </ng-template>
