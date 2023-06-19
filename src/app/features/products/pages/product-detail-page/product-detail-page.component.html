@@ -1,5 +1,5 @@
 <section
-	class="grid place-items-center h-full p-4"
+	class="grid place-items-center h-full p-4 w-limit"
 	*ngIf="isLoaded; else skeletonTemplate">
 	<div class="flex flex-col">
 		<h4 class="py-4 text-gray-800 text-center md:text-left">{{ title }}</h4>
@@ -7,7 +7,7 @@
 			{{ description }}
 		</div>
 		<div class="flex flex-col md:flex-row gap-8">
-			<div class="mx-auto w-72 h-72 md:w-80 md:h-80 flex-shrink-0">
+			<div class="w-72 h-72 md:w-80 md:h-80 flex-shrink-0">
 				<img
 					[src]="image"
 					class="w-full h-full object-contain shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
