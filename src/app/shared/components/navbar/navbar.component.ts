@@ -25,9 +25,10 @@ export class NavbarComponent {
 		this.navMenuService.closeMenu();
 	}
 
-	@HostListener('window:resize')
-	onResize(): void {
-		console.log('Close by resize');
+	@HostListener('window:resize', ['$event.target'])
+	onResize(target: Window): void {
+		console.log(target.window.innerWidth);
+		console.log(target.window.outerWidth);
 
 		this.navMenuService.closeMenu();
 	}

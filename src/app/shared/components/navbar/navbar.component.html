@@ -15,8 +15,8 @@
 			</a>
 		</div>
 		<div
-			*ngIf="isMenuActive$ | async"
-			class="flex items-start gap-4 flex-col-reverse fixed position-center max-w-xs md:max-w-fit md:h-auto md:position-center-restart md:flex-row md:items-center md:static">
+			class="hidden md:flex items-start gap-4 flex-col-reverse fixed position-center max-w-xs md:max-w-fit md:h-auto md:position-center-restart md:flex-row md:items-center md:static"
+			[class.hidden]="(isMenuActive$ | async) === false">
 			<div class="flex items-start flex-col gap-4 md:gap-2 md:flex-row md:items-center">
 				<a
 					(click)="closeMenu()"

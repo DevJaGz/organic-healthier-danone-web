@@ -22,8 +22,6 @@ export class NavigationMenuService {
 	}
 
 	private updateMenuState(value: boolean): void {
-		console.log('updated', value);
-
 		this._isMenuActive$.next(value);
 	}
 }
