@@ -22,7 +22,7 @@
 		</div>
 		<div
 			[class.flex]="isMenuActive$ | async"
-			class="hidden md:flex items-start gap-4 flex-col-reverse fixed top-56 left-10 md:top-auto md:left-auto max-w-xs md:max-w-fit md:h-auto md:flex-row md:items-center md:static"
+			class="hidden md:flex items-start gap-4 flex-col-reverse fixed top-56 left-10 sm:left-52 md:top-auto md:left-auto max-w-xs md:max-w-fit md:h-auto md:flex-row md:items-center md:static"
 			[class.hidden]="(isMenuActive$ | async) === false">
 			<div class="flex items-start flex-col gap-4 md:gap-2 md:flex-row md:items-center">
 				<a
@@ -110,7 +110,7 @@
 			<div class="flex items-start flex-col-reverse gap-4 md:flex-row md:items-center">
 				<div
 					role="button"
-					class="flex items-center gap-2 mb-10 bg-primary-50 hover:bg-primary-100 transition-colors px-3 py-2 rounded md:mb-0">
+					class="flex items-center w-full gap-2 mb-10 bg-primary-50 hover:bg-primary-100 transition-colors px-3 py-2 rounded md:mb-0">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						class="icon icon-tabler icon-tabler-search"
@@ -131,19 +131,80 @@
 					</svg>
 					<span class="whitespace-nowrap">Buscar Producto</span>
 				</div>
-				<div
-					class="flex items-center gap-2"
-					role="button">
+				<div class="flex flex-col relative">
 					<div
-						class="w-10 h-10 grid place-items-center overflow-hidden rounded-full shadow border border-primary-50 hover:shadow-inner hover:shadow-primary-50/80 transition-colors">
-						<img
-							class="w-full h-full object-cover"
-							src="assets/imgs/png/profile.png"
-							alt="user" />
+						id="account-menu-button"
+						(click)="toggleAccountMenu()"
+						class="flex items-center gap-2"
+						role="button">
+						<div
+							class="w-10 h-10 grid place-items-center overflow-hidden rounded-full shadow border border-primary-50 hover:shadow-inner hover:shadow-primary-50/80 transition-colors">
+							<img
+								class="w-full h-full object-cover"
+								src="assets/imgs/png/profile.png"
+								alt="user" />
+						</div>
+						<span class="max-w-full overflow-hidden text-ellipsis whitespace-nowrap block md:hidden"
+							>Julian Andres Gomez Gomez</span
+						>
 					</div>
-					<span class="max-w-full overflow-hidden text-ellipsis whitespace-nowrap block md:hidden"
-						>Julian Andres Gomez Gomez</span
-					>
+					<div
+						(click)="closeAccountMenu()"
+						id="account-menu"
+						[class.flex]="isAccountMenuActive$ | async"
+						[class.hidden]="(isAccountMenuActive$ | async) === false"
+						class="flex flex-col md:shadow md:bg-primary-50 pt-2 pl-4 pr-2 pb-4 rounded-xl md:absolute md:bottom-0 md:right-0 md:translate-y-[110%] transition-transform">
+						<div
+							role="button"
+							class="justify-end mb-2 hidden md:flex">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="icon icon-tabler icon-tabler-x"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								stroke-width="2"
+								stroke="currentColor"
+								fill="none"
+								stroke-linecap="round"
+								stroke-linejoin="round">
+								<path
+									stroke="none"
+									d="M0 0h24v24H0z"
+									fill="none"></path>
+								<path d="M18 6l-12 12"></path>
+								<path d="M6 6l12 12"></path>
+							</svg>
+						</div>
+						<p
+							class="mb-4 font-semibold hidden md:block whitespace-nowrap max-w-full overflow-hidden text-ellipsis">
+							Julian Andres Gomez Gomez
+						</p>
+						<a
+							(click)="closeAccountMenu()"
+							class="flex cursor-pointer gap-2 rounded text-base hover:underline transition-shadow"
+							[routerLink]="route.Account">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="icon icon-tabler icon-tabler-user"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								stroke-width="2"
+								stroke="currentColor"
+								fill="none"
+								stroke-linecap="round"
+								stroke-linejoin="round">
+								<path
+									stroke="none"
+									d="M0 0h24v24H0z"
+									fill="none"></path>
+								<path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+								<path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+							</svg>
+							Cuenta
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
