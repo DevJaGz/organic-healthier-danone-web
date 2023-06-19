@@ -5,10 +5,16 @@ Web page to promote the range of organic and healthier products of Danone.
     <img src="./docs/imgs/gif/landing-screen.gif" style="max-width: 1024px"></img>
   </div>
 
+<br>
+
+## Demo
+Check the app [here](https://danone-healthy.web.app/)
+
 ## Stack
  - Angular v16
  - Node v16+
  - Contentful v1
+ - Firebase Hosting
 ## Requirements
  - Node v16+
 
